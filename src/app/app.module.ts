@@ -10,6 +10,8 @@ import { NavComponent } from './components/shared/nav/nav.component';
 import { BodyComponent } from './components/shared/body/body.component';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { WeatherDisplayComponent } from './components/weather-display/weather-display.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,6 +24,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     BodyComponent,
     AuthButtonComponent,
     HomepageComponent,
+    WeatherDisplayComponent,
 
   ],
   imports: [
@@ -32,6 +35,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
       domain: 'dev--ld1c96s.us.auth0.com',
       clientId: 'Cg6KVLscH6RqES7JvNJLWkBThREtbe7x'
     }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

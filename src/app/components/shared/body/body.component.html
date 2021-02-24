@@ -1,31 +1,5 @@
-<div class="row">
-    <div id="divWeatherMain"> 
-        <div class="weatherWidgetRow" style="font-size: 12px;">{{WeatherData.sys.id}}</div>
-        <div class="weatherWidgetRow" style="font-size: 12px;">Name: {{WeatherData.name}}</div>
-        <div class="weatherWidgetRow" style="font-size: 12px;">Temparature: {{WeatherData.main.temp}}</div>
-        <div class="weatherWidgetRow" style="font-size: 12px;">Description: {{WeatherData.weather.description}}</div>
-    </div>
-</div>
-<br>
-<div class="row">
-    <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">City ID</th>
-            <th scope="col">City name</th>
-            <th scope="col">Temperature</th>
-            <th scope="col">Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{WeatherData.sys.id}}</td>
-            <td>{{WeatherData.name}}</td>
-            <td>{{WeatherData.main.temp}}</td>
-            <td>{{WeatherData.weather.description}}</td>
-          </tr>
-        </tbody>
-      </table>
+<div>
+  <app-weather-display></app-weather-display>
 </div>
 
 
