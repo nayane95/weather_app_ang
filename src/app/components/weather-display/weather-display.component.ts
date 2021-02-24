@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as data from '../../../data/cities.json'
 import axios from 'axios';
 import { environment } from 'src/environments/environment';
+import { setupCache } from 'axios-cache-adapter'
 
 @Component({
   selector: 'app-weather-display',
@@ -28,14 +29,20 @@ export class WeatherDisplayComponent implements OnInit {
   getWeatherDetails(){
     data.List.forEach(element => {
       let cityid=element.CityCode;
-      let apiURL = this.apiBase + 'id=' + cityid + '&appid='+ this.apiKey;
-      axios.get(apiURL)
-      .then(res => {
+      const cache = setupCache({
+        // cache max age 15min
+        maxAge: 15 * 60 * 1000
+      });
+      const api = axios.create({
+        adapter: cache.adapter
+      })
+      api({
+        url: this.apiBase + 'id=' + cityid + '&appid='+ this.apiKey,
+        method: 'get'
+      }).then(async (res) => {
         this.weatherDetails.push(res.data);
       })
     });
-    if(localStorage.get)
-    console.log(this.weatherDetails);
   }
 
 }
